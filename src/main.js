@@ -6,7 +6,7 @@ import router from './router';
 import store from './store'
 import dataV from '@jiaminghi/data-view'
 import echarts from 'echarts'
-
+//main.js查看
 Vue.prototype.$echarts = echarts  //定义为全局变量
 
 Vue.use(dataV)
