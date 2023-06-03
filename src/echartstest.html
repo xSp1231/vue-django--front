@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts 词云图示例</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud/dist/echarts-wordcloud.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="myChart" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('myChart'));
+        var option = {
+            series: [{
+                type: 'wordCloud',
+                shape: 'circle',
+                left: 'center',
+                top: 'center',
+                width: '80%',
+                height: '80%',
+                right: null,
+                bottom: null,
+                sizeRange: [12, 50],
+                rotationRange: [-90, 180],
+                rotationStep: 45,
+                gridSize: 8,
+                drawOutOfBound: false,
+                textStyle: {
+                    normal: {
+                        fontFamily: 'sans-serif',
+                        fontWeight: 'bold',
+                        color: function () {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160)
+                            ].join(',') + ')';
+                        }
+                    },
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                // 词云图的数据
+                data: [
+                    {
+                        name: 'ECharts',
+                        value: 10000,
+                        textStyle: {
+                            normal: {
+                                color: 'black'
+                            }
+                        }
+                    },
+                    {
+                        name: '百度',
+                        value: 6181
+                    },
+                    {
+                        name: 'JavaScript',
+                        value: 4386
+                    },
+                    {
+                        name: '可视化',
+                        value: 4055
+                    },
+                    {
+                        name: '图表库',
+                        value: 2467
+                    },
+                    {
+                        name: '数据可视化',
+                        value: 2244
+                    },
+                    {
+                        name: '图形图像',
+                        value: 1898
+                    },
+                    {
+                        name: 'Web',
+                        value: 1484
+                    },
+                    {
+                        name: '开源',
+                        value: 1112
+                    },
+                    {
+                        name: '前端',
+                        value: 965
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
